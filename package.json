@@ -1,0 +1,17 @@
+{
+  "name": "fact-bot",
+  "version": "1.0.0",
+  "description": "Shows fact ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Duy Pham",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.5.1",
+    "get-json": "^1.0.1",
+    "ms": "^2.1.2",
+    "nodemon": "^2.0.2"
+  }
+}
