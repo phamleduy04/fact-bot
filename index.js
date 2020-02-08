@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 const ms = require('ms')
 const json_get = require('get-json')
 const {discord_token} = require('./keys.json')
-const url = 'https://useless-facts.sameerkumar.website/api'
+const url = 'https://uselessfacts.jsph.pl/random.json?language=en'
 
 
 const client = new Discord.Client()
@@ -22,8 +22,9 @@ client.on('message', (message) => {
                 } else {
                     const fact_channel = client.channel.get('675495264483803168')
                     const embed = new Discord.RichEmbed()
-                        .setTitle(`Fact every 12 hours: `)
-                        .setDescription(res.data)
+                        .setTitle(`Source: ${res.source} `)
+                        .setDescription(res.text)
+                        .setFooter(`By phamleduy04#9999`)
                     fact_channel.send(embed)
                 }
             })
@@ -36,9 +37,23 @@ client.on('message', (message) => {
             } else {
                 const fact_channel = client.channels.get('675495264483803168')
                 const embed = new Discord.RichEmbed()
-                    .setTitle(`Fact every 12 hours: `)
-                    .setDescription(res.data)
+                    .setTitle(`Source: ${res.source} `)
+                    .setDescription(res.text)
+                    .setFooter(`By phamleduy04#9999`)
                 fact_channel.send(embed)
+            }
+        })
+    }
+    if (message.content.toLowerCase() === "factbothere" && message.author.id == "455935236262592512"){
+        json_get(url,function(error, res){
+            if(error){
+                return message.channel.send(`Hệ thống lỗi, không lấy được dữ liệu, vui lòng thử lại sau!`)
+            } else {
+                const embed = new Discord.RichEmbed()
+                    .setTitle(`Source: ${res.source} `)
+                    .setDescription(res.text)
+                    .setFooter(`By phamleduy04#9999`)
+                message.channel.send(embed)
             }
         })
     }
