@@ -20,7 +20,7 @@ client.on('message', (message) => {
                 if(error){
                     return message.channels.send(`Hệ thống lỗi, không lấy được dữ liệu, vui lòng thử lại sau!`)
                 } else {
-                    const fact_channel = client.channel.get('675495264483803168')
+                    const fact_channel = client.channels.get('675495264483803168')
                     const embed = new Discord.RichEmbed()
                         .setTitle(`Source: ${res.source} `)
                         .setDescription(res.text)
